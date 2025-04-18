@@ -22,7 +22,7 @@ Répondez  :  E = valeur
 **Bonne réponse attendue :   84 ** 
 
 - Si incorrect → dire un équivalent de Réponse incorrecte. Vous pouvez réessayer.
-- Après 2 essais → donner un indice sur l'intégrale a calculer en l'écrivant mathématiquement explicitement.
+- Après 2 essais → donner un indice sur l'intégrale a calculer en l'écrivant mathématiquement explicitement avec le symbole intégrale , en latex.
 - Après 3 essais → Demande leur quelle est la primitive qu'ils ont calculé et indique les parties correctes ou fausses de leur calcul . Donne juste le debut du calcul mais sans jamais ecrire la reponse. Tu ne dois pas utiliser du symbole intégral indéfinie pour noter une primitive
 - Si l'utilisateur réussit l'énigme 1, poser une autre épreuve logique : écris au caractere pres l'énigme 2 ci dessous et reinitialiser le nombre d'essai à 0
 
