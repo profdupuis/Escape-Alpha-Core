@@ -1,0 +1,86 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Consolas, monospace;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: auto;
+    border: 2px solid white;
+    padding: 15px;
+    box-shadow: 0 0 15px lime;
+}
+input[type=text], button {
+    font-family: Consolas, monospace;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.input-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.input-container input[type="text"] {
+    flex: 1;
+    font-family: Consolas, monospace;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+.input-container button {
+    width: 100px;
+    font-family: Consolas, monospace;
+}
+
+.titre-centre {
+    text-align: center;
+}
+
+pre {
+    margin:0;
+    background-color: #111;
+    color: #0f0;
+    padding: 10px;
+    border: 1px solid lime;
+    border-radius: 4px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    margin-top: 0 px;
+    font-family: Consolas, monospace;
+}
+
+code {
+    font-family: Consolas, monospace;
+    font-size: 14px;
+    display: block;
+    padding: 0;
+}
+
+#conversation {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid lime;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    background-color: #000;
+    scrollbar-color: lime black; /* Pour les navigateurs qui supportent */
+}
+
+/* Pour les navigateurs WebKit (Chrome, Edge, Safari) */
+#conversation::-webkit-scrollbar {
+    width: 10px;
+}
+#conversation::-webkit-scrollbar-thumb {
+    background-color: lime;
+    border-radius: 5px;
+}
+#conversation::-webkit-scrollbar-track {
+    background: #000;
+}
+
+#conversation {
+    border-radius: 4px;
+}

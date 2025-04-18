@@ -1,0 +1,11 @@
+🧠 ÉNIGME INITIALE :
+
+Une surintensité a été détectée dans le circuit secondaire. 
+
+Le rapport indique une fonction de puissance instantanée :
+\[
+P(t) = 3t^2 + 2t + 1
+\]
+Calculez l’énergie dissipée entre \( t = 0 \) et \( t = 4 \) secondes.
+
+Indiquez votre réponse au format :  E = valeur

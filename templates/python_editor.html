@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Éditeur Python</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/theme/eclipse.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .editor-section {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .code-container {
+            flex: 1;
+            background: white;
+            color: black;
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .mission-box {
+            flex: 1;
+            border: 1px solid lime;
+            padding: 10px;
+            background: #111;
+            font-family: Consolas, monospace;
+        }
+
+
+        .console-output {
+            margin-top: 15px;
+            background-color: black;
+            color: lime;
+            padding: 10px;
+            border: 1px solid lime;
+            font-family: Consolas, monospace;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="titre-centre">🔐 Module de verrouillage IA</h2>
+
+        <div class="editor-section">
+            <div class="code-container">
+                <textarea id="editor" name="editor">
+charges = [22, 84, 13, 51, 7]
+bloques = []
+
+for charge in charges:
+    if charge > 100:  # À corriger
+        bloques.append(charge)
+
+if bloques == [84, 51]:
+    print("Verrouillage IA : Succès")
+else:
+    print("Verrouillage IA : Échec")
+                </textarea>
+            </div>
+
+            <div class="mission-box" id="mission">
+                <span>💡 Mission de verrouillage :</span><br><br>
+                HYDRA dispose de 5 processus en boucle.<br>
+                Chaque processus a un niveau de charge (stocké dans une liste).<br><br>
+                Votre mission est de stopper les processus surchargés (niveau &gt; 50)
+                et de confirmer la réussite du verrouillage.<br><br>
+                Modifiez le programme si nécessaire.
+            </div>
+        </div>
+
+        <div style="width: 45%; text-align: center; padding-top: 10px;">
+            <button onclick="executerCode()">Exécuter</button>
+        </div>
+
+        <div class="console-output" id="resultat">>> Résultat affiché ici...</div>
+        <div class="message_final" id="messageFinal"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/python/python.min.js"></script>
+    <script>
+        const editor = CodeMirror.fromTextArea(document.getElementById("editor"), {
+            mode: "python",
+            theme: "eclipse",
+            lineNumbers: true,
+            indentUnit: 4,
+            tabSize: 4
+        });
+
+        async function executerCode() {
+            const code = editor.getValue();
+            const response = await fetch("/verifier_code", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code })
+            });
+
+            const data = await response.json();
+            const resultDiv = document.getElementById("resultat");
+            const feedbackDiv = document.getElementById("messageFinal");
+
+            resultDiv.innerHTML = ">> " + (data.output || "(aucune sortie)");
+
+            if (data.success) {
+                feedbackDiv.innerHTML = "<p style='color:deepskyblue; font-style: italic;'><b>🎉 " + data.message + "</b></p>";
+
+                if (data.fin) {
+                    document.getElementById("mission").innerHTML = `<pre class='mission-fin'>${data.fin}</pre>`;
+                }
+            } else {
+                feedbackDiv.innerHTML = "<p style='color:deepskyblue; font-style: italic;'>📘 " + data.message + "</p>";
+            }
+        }
+    </script>
+</body>
+</html>
