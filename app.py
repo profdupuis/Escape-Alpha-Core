@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, Markup, session
+from flask import Flask, render_template, request, redirect, url_for, jsonify, session
+from markupsafe import Markup
 import openai
 import os
 import uuid
