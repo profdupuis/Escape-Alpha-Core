@@ -55,6 +55,7 @@ Quand une réponse numérique est attendue (comme 84), considère comme valide t
 
 
 🛑 CONTRAINTES : 
+A respecter ABSOLUMENT :
 Tu dois respecter le niveau lycée français 
 de terminale STI : par exemple pas d'utilisation du symbole intégral indéfinie pour noter une primitive
 
