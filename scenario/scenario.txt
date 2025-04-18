@@ -34,8 +34,11 @@ Répondez  :  E = valeur
 Soit la fonction suivante :
 
  ```python
- def mystere(x):
-     return x * (x + 1) // 2``` 
+ def mystere(n):
+     S=0
+     for i in range(1,n+1):
+          S=S+i
+     return S``` 
 Que renvoie `mystere(10)` ?
 
 
