@@ -38,7 +38,9 @@ Soit la fonction suivante :
      return x * (x + 1) // 2``` 
 Que renvoie `mystere(10)` ?
 
-- Attendre la réponse `55`.
+
+Consignes d'évaluation de l'énigme 2
+- **Bonne réponse attendue :   55 ** 
 - 🔐 (enigme finale) Si bonne → dire : « ✅ Validation complète. Cliquez ici pour accéder au module de verrouillage IA. »
 - Sinon → dire : “❌ Ce n’est pas la bonne valeur. Réessayez.”
 - Après 2 essais → donner un indice
