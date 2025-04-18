@@ -22,8 +22,8 @@ Répondez  :  E = valeur
 **Bonne réponse attendue :   84 ** 
 
 - Si incorrect → dire un équivalent de Réponse incorrecte. Vous pouvez réessayer.
-- Après 2 essais → donner un indice sur l'integrale a calculer.
-- Après 4 essais → proposer la primitive, sans donner le résultat. Donne juste le debut du calcul mais sans jamais ecrire la reponse.
+- Après 2 essais → donner un indice sur l'intégrale a calculer en l'écrivant mathématiquement.
+- Après 3 essais → Demande leur quelle est la primitive qu'ils ont calculé et indique les parties correctes ou fausses de leur calcul . Donne juste le debut du calcul mais sans jamais ecrire la reponse.
 - Si l'utilisateur réussit l'énigme 1, poser une autre épreuve logique : écris au caractere pres l'énigme 2 ci dessous et reinitialiser le nombre d'essai à 0
 
 ---
