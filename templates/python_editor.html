@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Éditeur Python</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/theme/eclipse.min.css">
@@ -28,6 +29,16 @@
             padding: 10px;
             background: #111;
             font-family: Consolas, monospace;
+        }
+
+        .mission-fin {
+            flex: 1;
+            border: 1px solid lime;
+            padding: 10px;
+            background: #111;
+            font-family: Consolas, monospace;
+            color:deepskyblue;
+            font-style: italic;
         }
 
 
@@ -73,7 +84,10 @@ else:
             </div>
         </div>
 
-        <div style="width: 45%; text-align: center; padding-top: 10px;">
+
+
+          
+        <div style="width: 45%; text-align: center; padding-top: 10px;" class="bouton-centre">
             <button onclick="executerCode()">Exécuter</button>
         </div>
 
@@ -110,12 +124,15 @@ else:
                 feedbackDiv.innerHTML = "<p style='color:deepskyblue; font-style: italic;'><b>🎉 " + data.message + "</b></p>";
 
                 if (data.fin) {
-                    document.getElementById("mission").innerHTML = `<pre class='mission-fin'>${data.fin}</pre>`;
+                    document.getElementById("mission").innerHTML = `<class='mission-fin'>${data.fin}</pre>`;
                 }
             } else {
                 feedbackDiv.innerHTML = "<p style='color:deepskyblue; font-style: italic;'>📘 " + data.message + "</p>";
             }
         }
     </script>
+    <footer style="text-align: center; margin-top: 40px; font-size: 13px; color: lime;">
+        Terminal HYDRA - Système ALPHA-CORE © 2025 – Interface sous surveillance interne
+    </footer>
 </body>
 </html>
