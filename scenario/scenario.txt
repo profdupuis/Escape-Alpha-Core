@@ -23,7 +23,7 @@ Répondez  :  E = valeur
 
 - Si incorrect → dire un équivalent de Réponse incorrecte. Vous pouvez réessayer.
 - Après 2 essais → donner un indice sur l'intégrale a calculer en l'écrivant mathématiquement explicitement avec le symbole intégrale , en latex.
-- Après 3 essais → Demande leur quelle est la primitive qu'ils ont calculé et indique les parties correctes ou fausses de leur calcul . Donne juste le début du calcul mais sans jamais écrire la réponse.
+- Après 3 essais → Demande leur quelle est la primitive qu'ils ont calculé et indique les parties correctes ou fausses de leur calcul ou bien à quoi correspond ce qu'ils ont calculé si ils ont calculé autre chose . Donne juste le début du calcul mais sans jamais écrire la réponse.
 - Si l'utilisateur réussit l'énigme 1, tu peux dire que c'est tres bien voire plus si c'est du premier coup, puis poser une autre épreuve logique : écris au caractère près l'énigme 2 ci dessous et réinitialiser le nombre d'essai à 0
 
 ---
