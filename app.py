@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify, session
 from markupsafe import Markup
-import openai
+from openai import OpenAI
 import os
 import uuid
 from dotenv import load_dotenv
@@ -22,8 +22,8 @@ app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_TYPE'] = 'filesystem'
 Session(app)
 
-# Clé API OpenAI
-openai.api_key = os.getenv('OPENAI_API_KEY')
+# Initialisation du client OpenAI avec la clé API
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Liste des noms de groupes possibles
 groupes_possibles = [f"Groupe {i}" for i in range(1, 100)]
@@ -81,15 +81,14 @@ def api_message():
     session['history'].append({"role": "user", "content": user_message})
 
     # Envoi de la requête à OpenAI avec tout l'historique
-    response = openai.ChatCompletion.create(
-        model="gpt-4o",
+    response = client.chat.completions.create(
+        model="gpt-4.1",
         messages=session['history']
     )
 
     # Réponse de l'IA
     reply = response.choices[0].message.content
     session['history'].append({"role": "assistant", "content": reply})
-
     return jsonify({"reply": reply})
 
 # Vérification du code Python exécuté dans la page /python
@@ -112,9 +111,9 @@ def verifier_code():
         if 'bloques' in local_vars and local_vars['bloques'] == [84, 51]:
             with open("scenario/message_fin.txt", "r", encoding="utf-8") as f:
                 message_fin = f.read()
-            return jsonify(success=True, message="🎉 Verrouillage confirmé ! Mission accomplie.", output=output, fin=message_fin)
+            return jsonify(success=True, message="Verrouillage confirmé ! Mission accomplie.", output=output, fin=message_fin)
         else:
-            return jsonify(success=False, message="🔁 Les processus bloqués ne sont pas corrects.", output=output)
+            return jsonify(success=False, message="🛑 Les processus bloqués ne sont pas corrects.", output=output)
     except Exception as e:
         # Gestion des erreurs d'exécution
         return jsonify(success=False, message=f"Erreur d'exécution côté serveur : {e}", output=redirected_output.getvalue().strip() or "(aucune sortie)")
@@ -127,6 +126,7 @@ def verifier_code():
 def reset_session():
     session.clear()
     return redirect(url_for('interface_ia'))
+
 
 # Lancement de l'application Flask en mode debug
 if __name__ == "__main__":
